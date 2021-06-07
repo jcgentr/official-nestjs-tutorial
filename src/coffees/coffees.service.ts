@@ -28,7 +28,8 @@ export class CoffeesService {
     console.log(coffeesConfiguration.foo);
   }
 
-  findAll(paginationQuery: PaginationQueryDto) {
+  async findAll(paginationQuery: PaginationQueryDto) {
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
     const { limit, offset } = paginationQuery;
     return this.coffeeModel.find().skip(offset).limit(limit).exec();
   }
